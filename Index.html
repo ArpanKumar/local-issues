@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raise a Local Issue</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #1e293b;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      margin: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>  <header>
+    <h1>Report a Local Problem</h1>
+    <p>Your voice helps improve our community</p>
+  </header>  <main>
+    <h2>Submit an Issue</h2><form id="issueForm">
+  <label for="name">Your Name (optional)</label>
+  <input type="text" id="name" placeholder="Enter your name" />
+
+  <label for="area">Locality / Area</label>
+  <input type="text" id="area" required placeholder="Example: Sector 12, Village Name" />
+
+  <label for="category">Problem Category</label>
+  <select id="category" required>
+    <option value="">-- Select a category --</option>
+    <option>Justice</option>
+    <option>Agriculture</option>
+    <option>Infrastructure</option>
+    <option>Reservation</option>
+    <option>Other</option>
+  </select>
+
+  <label for="description">Describe the Problem</label>
+  <textarea id="description" required placeholder="Explain the issue clearly"></textarea>
+
+  <button type="submit">Submit Issue</button>
+</form>
+
+<p class="note">All submissions are reviewed and used only for community improvement.</p>
+
+  </main>  <footer>
+    © Community Initiative | Speak Up. Be Heard.
+  </footer>  <script>
+    document.getElementById("issueForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        area: document.getElementById("area").value,
+        category: document.getElementById("category").value,
+        description: document.getElementById("description").value,
+      };
+
+      console.log("Issue submitted:", data);
+      alert("Thank you! Your issue has been submitted.");
+      this.reset();
+   </script>
+</body>
+</html>
