@@ -104,20 +104,36 @@
 
   </main>  <footer>
     © Community Initiative | Speak Up. Be Heard.
-  </footer>  <script>
-    document.getElementById("issueForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+  </footer>  
+  <script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzBx2TjWRYEHzlYFQG-arnEz6tpHHQqI2nSe5shWbHp5l8uo7-e-as58iEmL98uqXJSxA/exec";
 
-      const data = {
-        name: document.getElementById("name").value,
-        area: document.getElementById("area").value,
-        category: document.getElementById("category").value,
-        description: document.getElementById("description").value,
-      };
+document.getElementById("issueForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      console.log("Issue submitted:", data);
-      alert("Thank you! Your issue has been submitted.");
-      this.reset();
-   </script>
+  const data = {
+    name: document.getElementById("name").value,
+    area: document.getElementById("area").value,
+    category: document.getElementById("category").value,
+    description: document.getElementById("description").value,
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.json())
+  .then(() => {
+    alert("Issue submitted successfully!");
+    this.reset();
+  })
+  .catch(() => {
+    alert("Submission failed. Try again.");
+  });
+});
+  </script>
 </body>
 </html>
